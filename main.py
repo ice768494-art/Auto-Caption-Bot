@@ -16,7 +16,10 @@ from telegram.ext import (
 
 # ================ CONFIGURATION ================
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+
+if not BOT_TOKEN:
+    raise ValueError("TELEGRAM_BOT_TOKEN is missing from environment variables!")
 SOURCE_CHANNEL_ID = os.getenv("SOURCE_CHANNEL_ID")
 TARGET_CHANNEL_ID = os.getenv("TARGET_CHANNEL_ID")
 
